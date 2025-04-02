@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Multimodal Chatbot</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/styles.css') }}"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/recordrtc@5.6.2/RecordRTC.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Multimodal Chatbot</h2>
+                </div>
+                <div class="sidebar-channels">
+                    <ul>
+                        <li class="active"># General</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="chat-container">
+                    <div id="chat-messages"></div>
+                    <div class="input-container">
+                        <textarea
+                            id="user-input"
+                            placeholder="Type your message..."
+                        ></textarea>
+                        <button id="send-button">Send</button>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <video id="video-preview" autoplay></video>
+                    <canvas id="video-canvas" style="display: none"></canvas>
+                    <div id="emotion-scores"></div>
+                </div>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    </body>
+</html>
