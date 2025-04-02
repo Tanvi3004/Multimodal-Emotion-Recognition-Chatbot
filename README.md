@@ -11,6 +11,62 @@ The scope of this report includes a detailed review of the system architecture, 
 ## System Architecture
 The system architecture of the multi-modal chatbot is designed to efficiently handle both text and video inputs to deliver a cohesive user experience. Below is a high-level overview of the architecture, followed by descriptions of the major components:
 
+![Image](https://github.com/user-attachments/assets/e6fb710c-7952-4202-8a99-949ef5e4be69)
+
+## Description of Major Components
+### 1.	Web Interface:
+- This component consists of the HTML, CSS, and JavaScript files that create the user interface. Users interact with the chatbot through this interface, which is responsible for capturing text and video data and displaying the chatbot's responses.
+### 2. Flask Server Application:
+- The Flask server acts as the backbone of the application, managing routes and interactions between the web interface and the processing modules. It handles requests from the web interface, processes them through the analysis modules, and sends responses back to the interface.
+### 3. Text and Video Analysis Modules
+- **Text Analysis:** Utilizes spaCy for linguistic analysis and Hugging Face's pipeline for sentiment and emotion detection.
+- **Video Analysis:** Employs OpenCV for image processing and DeepFace for facial emotion recognition. This module analyzes the video frames captured from the user's webcam to identify emotional states.
+### 4. Response Generator: 
+- This module uses the ChatGPT API, which takes sentiment inputs from both text and video analyses to generate contextually aware responses. The API crafts responses that are sensitive to the emotional context and enhances the interaction quality.
+
+## Technologies Used
+### 1.	Flask Web Framework 
+- Flask is a lightweight WSGI web application framework that is widely used to develop web applications. It provides tools, libraries, and technologies that allow building a web application. This project utilizes Flask to handle web server operations, routing, and the integration of other components.
+### 2.	spaCy for NLP Tasks 
+- spaCy is a powerful and efficient library for natural language processing (NLP) in Python. It is used in this project for linguistic analysis such as tokenization, part-of-speech tagging, and named entity recognition. spaCy's robust processing capabilities help in analyzing the structure and content of the user's text input.
+### 3.	ChatGPT API for Chatbot Responses 
+- The ChatGPT API is used to generate conversational responses. It integrates sentiment and emotional data derived from the text and video analysis to provide replies that are emotionally intelligent and contextually appropriate.
+### 4.	OpenCV and DeepFace for Video and Facial Emotion Analysis 
+- OpenCV (Open Source Computer Vision Library) is utilized for image processing and video handling functionalities required to analyze user's facial expressions.
+- DeepFace is a deep learning facial recognition and attribute analysis framework, employed here to analyze emotions from video data by recognizing facial expressions.
+### 5.	Other Supporting Technologies (JavaScript, HTML5, etc.) 
+- The front end uses HTML5 and CSS for structuring and styling the user interface, while JavaScript is used for dynamic content handling, capturing video data, and communicating with the Flask backend.
+
+## Implementation Details
+### 1.	Setup and Configuration of the Flask Application 
+- The Flask application is configured as the central server handling all requests and responses. It integrates various components and manages data flow between the user interface and processing modules.
+### 2.	Integration of spaCy for Linguistic Analysis 
+- spaCy is integrated to perform detailed linguistic analysis of user inputs. This includes extracting parts of speech, entities, and other linguistic features which are crucial for understanding the context and enhancing the chatbot's responses.
+### 3.	Integration of the ChatGPT API for Response Generation 
+- The ChatGPT API is configured to generate responses based on the sentiment and emotional insights gained from both text and video inputs. This approach allows for enhanced interaction by aligning the chatbot’s responses more closely with the user's emotional states.
+### 4.	Implementation of Video Processing with OpenCV 
+- OpenCV is used for capturing and processing video frames from the user's webcam. It handles the conversion of video data into formats suitable for facial emotion analysis.
+### 5.	Facial Emotion Recognition Using DeepFace 
+- DeepFace analyzes the processed video frames to identify facial emotions. This includes detecting if a face is present and analyzing various facial expressions to determine emotional states.
+
+## Functionality
+### 1. Text Analysis: Sentiment and Emotion Detection
+- Text inputs are analyzed for both sentiment and emotion. Sentiment analysis categorizes the input into positive, neutral, or negative sentiments, while emotion detection identifies specific emotional states such as happiness, sadness, anger, etc.
+### 2. Video Analysis: Facial Emotion Recognition
+- The system processes video input to detect and analyze the user's facial expressions. This helps in understanding the emotional state of the user more comprehensively.
+### 3. Combining Results from Text and Video Analysis
+- The application integrates results from both text and video analysis to achieve a nuanced understanding of the user's overall emotional state. This integrated analysis helps in tailoring the chatbot's responses more effectively.
+### 4. Chatbot Response Generation Based on Combined Analysis
+- Based on the combined insights from text and video analyses, the chatbot generates responses that are contextually relevant and emotionally intelligent, enhancing the interaction quality and user experience.
+
+## User Interface
+### Description of the User Interface
+The user interface of the multi-modal chatbot is streamlined and user-friendly, designed to facilitate easy interaction for users of varying technical abilities. It features a dual-pane layout with a chat interface on one side and a video display area on the other. The chat interface allows users to enter text and view messages, creating a conversation history that scrolls vertically. The video display captures and shows the user's facial expressions in real-time, which are essential for the emotion recognition component of the system.
+
+- Screenshots of the Application in Use
+
+
+
 
 
 
